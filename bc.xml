@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module 
+    name="BusinessComponent"
+    description="Business component objects that can be shared across applications.">
+    
+<qurydef
+    name="Scenario"
+    label="Scenario"
+    description="Scenario"
+    source="DTOPT.SCENARIO"
+    type="table">
+    <columndef
+        name="Id"
+        description="Scenario Id"
+        columnName="scenarioid"
+        type="id">
+    </columndef>
+    <columndef
+        name="Name"
+        description="Name"
+        columnName="name"
+        type="string">
+    </columndef>
+    <columndef
+        name="Source Id"
+        description="Source Id"
+        columnName="sourceid"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Scenario Type"
+        description="Scenario Type"
+        columnName="scenariotype"
+        pickList="Scenario Type"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Category Id"
+        description="Category Id"
+        columnName="categoryid"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Goal"
+        description="Goal"
+        columnName="GOALVALUE"
+        pickList="Scenario Goals"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Price Update Cost Source"
+        description="Price Update Cost Source"
+        columnName="PRICEUPDATECOSTSOURCE"
+        pickList="PU Cost Source"
+        type="integer">
+        <pickMap
+            targetField="Price Update Cost Source"
+            sourceField="Value"
+            constrain="false">
+        </pickMap>
+    </columndef>
+    <columndef
+        name="Created By"
+        description="Created By"
+        columnName="WHOCREATED"
+        type="string">
+    </columndef>
+    <columndef
+        name="Creation Date"
+        description="Creation Date"
+        columnName="DATECREATED"
+        type="timestamp">
+    </columndef>
+    <columndef
+        name="Updated By"
+        description="Updated By"
+        columnName="WHOUPDATED"
+        type="string">
+    </columndef>
+    <columndef
+        name="Update Date"
+        description="Update Date"
+        columnName="DATEUPDATED"
+        type="timestamp">
+    </columndef>
+    <columndef
+        name="Include Non Modeled"
+        description="Include Non Modeled"
+        columnName="INCLUDENONMODEL"
+        type="boolean">
+    </columndef>
+    <columndef
+        name="Division Id"
+        description="Division Id"
+        columnName="divisionid"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Product Group Id"
+        description="Product Group Id"
+        columnName="productgroupid"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Location Group Id"
+        description="Location Group Id"
+        columnName="locationgroupid"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Deleted"
+        description="Deleted"
+        columnName="ISDELETED"
+        type="boolean">
+    </columndef>
+    <columndef
+        name="Category"
+        description="Category"
+        columnName="name"
+        join="Product Category"
+        type="string">
+    </columndef>
+    <columndef
+        name="Division"
+        description="Division"
+        columnName="name"
+        join="Division"
+        type="string">
+    </columndef>
+    <columndef
+        name="Product Group"
+        description="Product Group"
+        columnName="name"
+        join="Product Group"
+        type="string">
+    </columndef>
+    <columndef
+        name="Location Group"
+        description="Location Group"
+        columnName="name"
+        join="Location Group"
+        type="string">
+    </columndef>
+    <columndef
+        name="Scenario Run Id"
+        description="Scenario Run Id"
+        columnName="SCENARIORUNID"
+        join="Scenario Run"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Cost Source"
+        description="Optimization/Rule Price Cost Source"
+        columnName="OPTCOSTSOURCE"
+        pickList="Cost Source"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Future Cost Source"
+        description="Optimization/Rule Price Future Cost Source"
+        columnName="OPTFUTURECOSTSOURCE"
+        pickList="Future Cost Source"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Future Cost Time Frame"
+        description="Time Frame From Scenario Start Date"
+        columnName="OPTFUTURECOSTSOURCE"
+        type="integer">
+    </columndef>
+    <columndef
+        name="Promotion Activity"
+        description="Promotion activity"
+        columnName="PROMOCOEFFTYPE"
+        pickList="Promotion Activity Type"
+        type="integer">
+    </columndef>
+    <join
+        name="Product Category"
+        label="Product Category"
+        tableName="DTOPT.PRODUCTCATEGORY"
+        outerJoin="false">
+        <spec
+            name="Category Id"
+            label="Category Id"
+            sourceField="Category Id"
+            destColumn="PRODUCTCATEGORYID">
+        </spec>
+    </join>
+    <join
+        name="Division"
+        label="Division"
+        tableName="dtopt.division"
+        outerJoin="false">
+        <spec
+            name="Division Id"
+            label="Division Id"
+            sourceField="Division Id"
+            destColumn="divisionid">
+        </spec>
+    </join>
+    <join
+        name="Product Group"
+        label="Product Group"
+        tableName="dtopt.productgroup"
+        outerJoin="false">
+        <spec
+            name="Product Group Id"
+            label="Product Group Id"
+            sourceField="Product Group Id"
+            destColumn="productgroupid">
+        </spec>
+    </join>
+    <join
+        name="Location Group"
+        label="Location Group"
+        tableName="dtopt.locationgroup"
+        outerJoin="false">
+        <spec
+            name="Location Group Id"
+            label="Location Group Id"
+            sourceField="Location Group Id"
+            destColumn="locationgroupid">
+        </spec>
+    </join>
+    <join
+        name="Scenario Run"
+        label="Scenario Run"
+        tableName="DTOPT.SCENARIORUN"
+        outerJoin="false">
+        <spec
+            name="Id"
+            label="Id"
+            sourceField="Id"
+            destColumn="SCENARIOID">
+        </spec>
+    </join>
+</qurydef>
+
+
+    
+</module>
