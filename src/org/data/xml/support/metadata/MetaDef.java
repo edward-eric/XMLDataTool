@@ -27,36 +27,36 @@ public abstract class MetaDef implements Serializable{
 		_description = desc;
 	}
 
-	public long get_id() {
+	public long getId() {
 		return _id;
 	}
 
-	public void set_id(long _id) {
-		this._id = _id;
+	public void setId(long id) {
+		this._id = id;
 	}
 
-	public String get_name() {
+	public String getName() {
 		return _name;
 	}
 
-	public void set_name(String _name) {
-		this._name = _name;
+	public void setName(String name) {
+		this._name = name;
 	}
 
-	public String get_label() {
+	public String getLabel() {
 		return _label;
 	}
 
-	public void set_label(String _label) {
-		this._label = _label;
+	public void setLabel(String label) {
+		this._label = label;
 	}
 
-	public String get_description() {
+	public String getDescription() {
 		return _description;
 	}
 
-	public void set_description(String _description) {
-		this._description = _description;
+	public void setDescription(String description) {
+		this._description = description;
 	}
 
 }
