@@ -14,9 +14,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -30,6 +34,7 @@ import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
 import javax.swing.text.JTextComponent;
 
+import org.data.xml.support.db.Catalog;
 import org.data.xml.support.db.DBType;
 
 public class DBConnectionDialog extends JDialog implements ActionListener {
@@ -125,7 +130,6 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 		++linenumber;
 		setGrid(linenumber, rownumber, 1, 1, c);
 		_dbcatalog_combo = new JComboBox();
-		_dbcatalog_combo.addItem("ssssssssss");
 		_dbcatalog_combo.setSelectedIndex(-1);
 		inputPanel.add(_dbcatalog_combo, c);
 		
@@ -246,8 +250,7 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
-					
+					loadDatabaseCatalog(_dbtype);					
 				}
 			});
 		}
@@ -273,8 +276,14 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+		
+		if ("OK".equals(e.getActionCommand())){
+			_ok_btn.setEnabled(false);
+			_connect = true;
+		}else if( "Cancel".equals(e.getActionCommand())){
+			_connect = false;
+		}
+		setVisible(false);
 	}
 	
 	private void close() {
@@ -288,6 +297,13 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 		c.gridy = y;
 		c.gridwidth = width;
 		c.gridheight = height;
+	}
+	
+	private void loadDatabaseCatalog(DBType type){
+		List<Catalog> dblist = new ArrayList<Catalog>(type.getCatalogs().values());
+		Collections.sort(dblist);
+		_dbcatalog_combo.setModel(new DefaultComboBoxModel(dblist.toArray()));
+		_dbcatalog_combo.setSelectedIndex(-1);
 	}
 	
 	
