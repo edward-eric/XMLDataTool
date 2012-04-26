@@ -1,10 +1,10 @@
 package org.data.xml.support.metadata;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
-public abstract class MetaDef implements Serializable{
-	
-	private static final long serialVersionUID = 7234583951899394418L;
+public abstract class MetaData implements Serializable{
 	
 	protected long _id;
 	protected String _name;
@@ -12,15 +12,18 @@ public abstract class MetaDef implements Serializable{
 	protected String _description;
 	
 	
-	public abstract MetaType getType();
+	protected Map<String, ObjectProperty> _applicationProperties = new HashMap<String, ObjectProperty>();
 	
-	public MetaDef(String name) {
+	
+	public abstract MetaDataType getType();
+	
+	public MetaData(String name) {
 		_id = -1;
 		_name = name;
 		_label = getType().getLabel() + " " + name;
 	}
 	
-	public MetaDef(long id, String name, String label, String desc){
+	public MetaData(long id, String name, String label, String desc){
 		_id = id;
 		_name = name;
 		_label = label;

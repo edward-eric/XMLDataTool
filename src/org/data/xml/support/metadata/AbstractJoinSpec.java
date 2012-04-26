@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 public abstract class AbstractJoinSpec implements Serializable {
 	
-	private static final long serialVersionUID = 4705554741968577547L;
-	
 	protected String _name;
 	protected String _label;
 	protected String _source;

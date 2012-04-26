@@ -5,42 +5,64 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class QueryDef extends MetaDef implements Serializable {
+public class QueryDef extends MetaData implements Serializable {
 
-	private static final long serialVersionUID = 8008721891388871652L;
-
+    /**
+     * Source table, used for base join for other tables
+     */
 	protected String _source = null;
+	
+	/**
+	 * default source type for query definition
+	 */
 	protected QueryType _queryType = QueryType.TABLE;
 	
+	/**
+	 * group of order by columns
+	 */
 	protected Map<String, Boolean> _orderbys = new LinkedHashMap<String, Boolean>();
+	
+	/**
+	 * Store all fetched columns' names and column Definitions
+	 */
 	protected Map<String, ColumnDef> _columns = new LinkedHashMap<String, ColumnDef>();
+	
+	/**
+	 * Store Query Definition's Join name, Join Definition
+	 */
 	protected Map<String, Join> _joins = new LinkedHashMap<String, Join>();
 	
 	@Override
-	public MetaType getType() {
-		return MetaType.QueryDef;
-	}
-	
-	public QueryDef(String name){
-		super(name);
+	public MetaDataType getType() {
+		return MetaDataType.QueryDef;
 	}
 	
 	public QueryDef(long id, String name, String label, String desc, String source, String type, String orderby){
 		super(id, name, label, desc);
 		_source = source;
 		_queryType = QueryType.getQueryType(type);
-		if (orderby != null){
+		splitOrderbys(orderby);
+	}
+	
+	private void splitOrderbys(String orderby){
+		if(orderby != null && orderby.length() > 0){
 			orderby = orderby.trim();
-			if ( orderby.length() > 0 ){
-				String[] orderbys = orderby.split(",");
-				for (String order : orderbys){
-					order = order.trim();
-					String[] criteria = order.split(" ");
-					if( criteria.length == 1){
-						_orderbys.put(criteria[0], true);
-					}else if(criteria.length == 2){
-						_orderbys.put(criteria[0], "true".equalsIgnoreCase(criteria[1]));
+			String[] orderbys = orderby.split(",");
+			for(String order : orderbys){
+				order = order.trim();
+				String[] orders = order.split(" ");
+				String trend = orders[orders.length - 1];
+				boolean ascSort = !"desc".equalsIgnoreCase(trend);
+				int lastIndex = orders.length - ("ASC".equalsIgnoreCase(trend) || "DESC".equalsIgnoreCase(trend) ? 1 : 0);
+				if(lastIndex > 0){
+					StringBuilder fieldName = new StringBuilder(20);
+					for(int i = 0; i < lastIndex; i++){
+						fieldName.append(orders[i]);
+						if((i+1) < lastIndex){
+							fieldName.append(' ');
+						}
 					}
+					_orderbys.put(fieldName.toString(), Boolean.valueOf(ascSort));
 				}
 			}
 		}
@@ -58,7 +80,7 @@ public class QueryDef extends MetaDef implements Serializable {
 		return getQueryType() == QueryType.TABLE;
 	}
 	
-	public Map<String, Boolean> getOrderBy() {
+	public Map<String, Boolean> getOrderBys() {
 		return _orderbys;
 	}
 	

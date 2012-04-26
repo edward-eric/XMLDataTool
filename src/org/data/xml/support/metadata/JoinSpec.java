@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 public class JoinSpec extends AbstractJoinSpec implements Serializable {
 
-	
-	private static final long serialVersionUID = -677418271251676261L;
-	
 	private Join _join;
 	
 	public JoinSpec(String name, String label, String source, String dest) {

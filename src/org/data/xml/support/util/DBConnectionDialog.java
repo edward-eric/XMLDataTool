@@ -14,6 +14,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,6 +36,7 @@ import javax.swing.WindowConstants;
 import javax.swing.text.JTextComponent;
 
 import org.data.xml.support.db.Catalog;
+import org.data.xml.support.db.CredentialType;
 import org.data.xml.support.db.DBType;
 
 public class DBConnectionDialog extends JDialog implements ActionListener {
@@ -68,6 +70,10 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 		super(owner, title, modal);
 		
 		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+		
+		_dbtype = DBType.getDBType(dbtype);
+		
+		getDBConnectionInfo("qa_catalog_cmds.sh", "db.properties", _dbtype);
 		
 		WindowListener windowListener = new WindowAdapter() {
 			public void windowClosing(WindowEvent e){
@@ -179,9 +185,9 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 		
 		++linenumber;
 		setGrid(linenumber, rownumber, 1, 1, c);
-		_host_filed = new JTextField(25);
-		_host_filed.addFocusListener(focusAdapter);
-		inputPanel.add(_host_filed, c);
+		_database_field = new JTextField(25);
+		_database_field.addFocusListener(focusAdapter);
+		inputPanel.add(_database_field, c);
 		
 		
 		++rownumber;
@@ -195,7 +201,7 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 		
 		++linenumber;
 		setGrid(linenumber, rownumber, 1, 1, c);
-		_credentialtypelist_combo = new JComboBox();
+		_credentialtypelist_combo = new JComboBox(CredentialType.values());
 		_credentialtypelist_combo.setSelectedIndex(-1);
 		inputPanel.add(_credentialtypelist_combo, c);
 		
@@ -227,8 +233,6 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 		_password_field.addFocusListener(focusAdapter);
 		inputPanel.add(_password_field, c);
 		
-		_dbtype = DBType.getDBType(dbtype);
-		
 		if(_dbtype != null)
 		{
 			++rownumber;
@@ -246,7 +250,7 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 			_dbtype_combo.addFocusListener(focusAdapter);
 			inputPanel.add(_dbtype_combo, c);
 			
-			_dbcatalog_combo.addActionListener(new ActionListener() {
+			_dbtype_combo.addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -306,6 +310,9 @@ public class DBConnectionDialog extends JDialog implements ActionListener {
 		_dbcatalog_combo.setSelectedIndex(-1);
 	}
 	
-	
+	private void getDBConnectionInfo(String catalogfilename, String propfilename, DBType type){
+		type.parseConnectionInfo(new InputStreamReader(getClass().getResourceAsStream("/" + catalogfilename)));
+		type.loadConnectionUserInfo("/" + propfilename);
+	}
 
 }

@@ -12,10 +12,6 @@ public enum QueryType {
 		return _name;
 	}
 	
-	public void setName(String name){
-		_name = name;
-	}
-	
 	private QueryType(String name) {
 		_name = name;
 	}

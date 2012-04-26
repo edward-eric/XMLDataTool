@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Join extends AbstractTableJoin implements Serializable {
-	
-	private static final long serialVersionUID = -3001605626269144277L;
+public class Join extends AbstractJoin implements Serializable {
 	
 	private String _tname;
 	private List<JoinSpec> _specs = new ArrayList<JoinSpec>();

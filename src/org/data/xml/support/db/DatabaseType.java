@@ -6,6 +6,7 @@ import java.util.Map;
 
 public enum DatabaseType {
 	
+	MYSQL ("MYSQL", "", "", false),
 	DB2 ("DB2", "com.ibm.db2.jcc.DB2Driver", "jdbc:db2://", false);
 	
 	DatabaseType(String label, String driver, String prefix, boolean orderby) {

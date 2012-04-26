@@ -6,16 +6,22 @@ import java.util.List;
 import java.util.Map;
 
 public class ColumnDef implements Serializable {
-
-	private static final long serialVersionUID = 7012528649275598328L;
 	
 	private String _name;
 	private String _desc;
-	private String _cname;
+	private String _columnName;
+	
+	/**
+	 * Belonging to which join table's
+	 */
 	private String _join;
-	private QueryDef _query;
-	private boolean _read;
-	private boolean _required;
+	
+	/**
+	 * Query definition which contains this column
+	 */
+	private QueryDef _parentQuery;
+	private boolean _readOnly = false;
+	private boolean _required = false;
 	private ColumnType _type = ColumnType.NONE;
 	private List<PickMap> _picks = new ArrayList<PickMap>();
 	private String _pickList = null;
@@ -23,22 +29,27 @@ public class ColumnDef implements Serializable {
 	public ColumnDef(String name, String desc, String columnname, String join, String pickList, String type){
 		_name = name;
 		_desc = desc;
-		_cname = columnname;
+		_columnName = columnname;
 		_join = join;
 		_pickList = pickList;
 		_type = ColumnType.getType(type);
+		
+		if("".equals(_join)){
+			_join = null;
+		}
+		_readOnly = "id".equalsIgnoreCase(_columnName);
 	}
 	
 	public QueryDef getQueryDef(){
-		return _query;
+		return _parentQuery;
 	}
 	
 	public void setQueryDef(QueryDef query){
-		_query = query;
+		_parentQuery = query;
 	}
 	
 	public boolean isReadable() {
-		return _read;
+		return _readOnly;
 	}
 	
 	public boolean isRequired() {
@@ -47,10 +58,6 @@ public class ColumnDef implements Serializable {
 	
 	public String getPickList() {
 		return _pickList;
-	}
-	
-	public void setPickList(String pickList){
-		_pickList = pickList;
 	}
 	
 	public void addPickMap(String source, String target, String cons){
@@ -86,11 +93,7 @@ public class ColumnDef implements Serializable {
 	}
 	
 	public String getColumnName(){
-		return _cname;
-	}
-	
-	public void setColumnName(String columnname){
-		_cname = columnname;
+		return _columnName;
 	}
 	
 	public String getQualifiedColumnName() {

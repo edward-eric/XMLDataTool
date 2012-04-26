@@ -15,9 +15,7 @@ public class Catalog implements Comparable<Catalog> {
 	}
 	
 	public Catalog(String db, String host, String port){
-		_database = db;
-		_host = host;
-		_port = port;
+		this(db, host, port, db);
 	}
 	
 	public String getDB() {
@@ -32,17 +30,13 @@ public class Catalog implements Comparable<Catalog> {
 		return _port;
 	}
 	
-	public String getLabel() {
-		return _label;
-	}
-	
 	public String toString() {
 		return _label;
 	}
 
 	@Override
 	public int compareTo(Catalog o) {
-		return getLabel().compareTo(o.getLabel());
+		return toString().compareTo(o.toString());
 	}
 
 }

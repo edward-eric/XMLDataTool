@@ -9,8 +9,8 @@ import java.util.Stack;
 import org.data.xml.support.metadata.ColumnDef;
 import org.data.xml.support.metadata.Join;
 import org.data.xml.support.metadata.JoinSpec;
-import org.data.xml.support.metadata.MetaDef;
-import org.data.xml.support.metadata.MetaType;
+import org.data.xml.support.metadata.MetaData;
+import org.data.xml.support.metadata.MetaDataType;
 import org.data.xml.support.metadata.QueryDef;
 import org.data.xml.support.util.StringPair;
 import org.xml.sax.Attributes;
@@ -45,8 +45,8 @@ public class DataHandler extends DefaultHandler {
 	public static final String _attribute_orderby = "orderBy";
 	
 	protected Stack<Object> _contextStack = new Stack<Object>();
-	protected Map<StringPair, MetaDef> _metas = new HashMap<StringPair, MetaDef>();
-	protected List<MetaDef> _metalist = new ArrayList<MetaDef>();
+	protected Map<StringPair, MetaData> _metas = new HashMap<StringPair, MetaData>();
+	protected List<MetaData> _metalist = new ArrayList<MetaData>();
 	
 	protected Object _topcontext = null;
 	
@@ -61,7 +61,7 @@ public class DataHandler extends DefaultHandler {
 		_topcontext = null;
 	}
 	
-	public void newMeta(MetaType type, String name, MetaDef md) {
+	public void newMeta(MetaDataType type, String name, MetaData md) {
 		StringPair pair = new StringPair(type.getName(), name);
 		_metas.put(pair, md);
 		_metalist.add(md);
@@ -93,33 +93,33 @@ public class DataHandler extends DefaultHandler {
 					atts.getValue(_attribute_source),
 					atts.getValue(_attribute_type), 
 					atts.getValue(_attribute_orderby));
-			newMeta(MetaType.QueryDef, attrName, queryDef);
+			newMeta(MetaDataType.QueryDef, attrName, queryDef);
 			_contextStack.push(queryDef);
 		}else if(qname == _element_columndef){
-			ColumnDef columnDef = new ColumnDef(attrName, attrDesc, 
-					atts.getValue(_attribute_column_name),
-					atts.getValue(_attribute_join), 
-					atts.getValue(_attribute_picklist),
-					atts.getValue(_attribute_type));
+			String columnName = atts.getValue(_attribute_column_name);
+			String joinTable = atts.getValue(_attribute_join);
+			String pickList = atts.getValue(_attribute_picklist);
+			String columnType = atts.getValue(_attribute_type);
+			ColumnDef columnDef = new ColumnDef(attrName, attrDesc,columnName, joinTable, pickList, columnType);
 			((QueryDef)context).addColumn(columnDef);
 			_contextStack.push(columnDef);
 		}else if(qname == _element_join){
-			Join join = new Join(attrName, attrLabel, 
-					atts.getValue(_attribute_table_name), 
-					!"false".equalsIgnoreCase(atts.getValue(_attribute_outer)));
+			String tableName = atts.getValue(_attribute_table_name);
+			String bString = atts.getValue(_attribute_outer);
+			Join join = new Join(attrName, attrLabel, tableName, !"false".equalsIgnoreCase(bString));
 			((QueryDef)context).addJoin(join);
 			_contextStack.push(join);
 		}else if(qname == _element_join_spec){
-			((Join)context).addJoinSpec(new JoinSpec(attrName,
-					attrLabel, 
-					atts.getValue(_attribute_source_filed), 
-					atts.getValue(_attribute_target_field)));
+			String source = atts.getValue(_attribute_source_filed);
+			String dest = atts.getValue(_attribute_target_field);
+			((Join)context).addJoinSpec(new JoinSpec(attrName, attrLabel, source, dest));
 		}else if(qname == _element_picklist){
 			
 		}else if (qname == _element_pickmap){
-			((ColumnDef)context).addPickMap(atts.getValue(_attribute_source_filed),
-					atts.getValue(_attribute_target_field), 
-					atts.getValue(_attribute_cons));
+			String source = atts.getValue(_attribute_source_filed);
+			String dest = atts.getValue(_attribute_target_field);
+			String cons = atts.getValue(_attribute_cons);
+			((ColumnDef)context).addPickMap(source, dest, cons);
 		}else {
 			throw new RuntimeException("invalid tag: " + qname);
 		}
@@ -135,7 +135,7 @@ public class DataHandler extends DefaultHandler {
 				qname == _element_join){
 			if (_contextStack.size() > 0){
 				context = _contextStack.pop();
-				_topcontext = null;
+				_topcontext = context;
 			}
 		}
 	}
