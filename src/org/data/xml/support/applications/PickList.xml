@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "file:/app.dtd">
+
+<module 
+    name="PickList" 
+    description="PickList Definitions">
+
+<pickList
+    name="PU Cost Source"
+    label="PU Cost Source"
+    description="PU Cost Source"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PU_COST_SOURCE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Scenario Type"
+    label="Scenario Type"
+    description="Scenario Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="SCENARIO_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Optimization Status"
+    label="Optimization Status"
+    description="Optimization Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="OPTIMIZATION_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Optimization Type"
+    label="Optimization Type"
+    description="Optimization Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="OPTIMIZATION_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Cost Trigger Type"
+    label="Cost Trigger Type"
+    description="Cost Trigger Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="COST_TRIGGER_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Update Trigger"
+    label="Update Trigger"
+    description="Update Trigger"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="UPDATE_TRIGGER"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Comp Import Status"
+    label="Comp Import Status"
+    description="Comp Import Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="COMP_IMPORT_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Rule Type"
+    label="Rule Type"
+    description="Rule Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="RULE_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Plan Status"
+    label="Plan Status"
+    description="Plan Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PLAN_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Plan CalcStatus"
+    label="Plan CalcStatus"
+    description="Plan CalcStatus"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PLAN_CALCSTATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Scenario Status"
+    label="Scenario Status"
+    description="Scenario Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="SCENARIO_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Scenario Objective1"
+    label="Scenario Objective1"
+    description="Scenario Objective1"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="SCENARIO_OBJECTIVE1"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Scenario Objective2"
+    label="Scenario Objective2"
+    description="Scenario Objective2"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="SCENARIO_OBJECTIVE2"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Product Granular Type"
+    label="Product Granular Type"
+    description="Product Granular Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PROD_GRANULAR_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Store Granular Type"
+    label="Store Granular Type"
+    description="Store Granular Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="STORE_GRANULAR_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Delivery Status"
+    label="Delivery Status"
+    description="Delivery Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="DELIVERY_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Price Source"
+    label="Price Source"
+    description="Price Source"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PRICE_SOURCE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Product Group Type"
+    label="Product Group Type"
+    description="Product Group Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PRODUCT_GROUP_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Location Group Type"
+    label="Location Group Type"
+    description="Location Group Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="LOCATION_GROUP_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Message Level"
+    label="Message Level"
+    description="Application Log Message Level"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="MESSAGE_LEVEL"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Message Type"
+    label="Message Type"
+    description="Application Log Message Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="MESSAGE_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Vat Trigger Type"
+    label="Vat Trigger Type"
+    description="Vat Trigger Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="VAT_TRIGGER_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Job Scheduler Status"
+    label="Job Scheduler Status"
+    description="Job Scheduler Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="JOB_SCHEDULER_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Job Scheduler Applications"
+    label="Job Scheduler Applications"
+    description="Job Scheduler Applications"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="JOB_SCHEDULER_APPLICATIONS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Job Scheduler Jobs"
+    label="Job Scheduler Jobs"
+    description="Job Scheduler Jobs"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="JOB_SCHEDULER_JOBS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Scenario Goals"
+    label="Scenario Goals"
+    description="Scenario Goals"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="SCENARIO_GOALS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Cost Source"
+    label="Cost Source"
+    description="Cost Source"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="COST_SOURCE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Future Cost Source"
+    label="Future Cost Source"
+    description="Future Cost Source"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="FUTURE_COST_SOURCE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="CPI Status"
+    label="CPI Status"
+    description="CPI Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="CPI_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="CPI Comp Weight"
+    label="CPI Comp Weight"
+    description="CPI Comp Weight"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="CPI_COMP_WEIGHT"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="CPI Calc Method"
+    label="CPI Calc Method"
+    description="CPI Calc Method"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="CPI_CALC_METHOD"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="CPI Calc Type"
+    label="CPI Calc Type"
+    description="CPI Calc Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="CPI_CALC_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Billing DataSource"
+    label="Billing DataSource"
+    description="Billing DataSource"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="BILLING_DATASOURCE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Allowance Type"
+    label="Allowance Type"
+    description="Allowance Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="ALLOWANCE_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Bill Status"
+    label="Bill Status"
+    description="Bill Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="BILL_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Lock Config"
+    label="Lock Config"
+    description="Lock Config"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="LOCK_CONFIG"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Promo Calc Status"
+    label="Promo Calc Status"
+    description="Promo Calc Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PROMO_CALC_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Calendar Calc Status"
+    label="Calendar Calc Status"
+    description="Calendar Calc Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="CALENDAR_CALC_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="ACV Generation Status"
+    label="ACV Generation Status"
+    description="ACV Generation Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="ACV_GEN_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Promotion Detail Type"
+    label="Promotion Detail Type"
+    description="Promotion Detail Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PROMO_DETAIL_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Relationship Type"
+    label="Relationship Type"
+    description="Relationship Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="RELATIONSHIP_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="NDA Data Status"
+    label="NDA Data Status"
+    description="NDA Data Status"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="NDA_DATA_STATUS"
+    bounded="true"
+    distinct="true">
+</pickList>
+
+<pickList
+    name="Discount Factor Type"
+    label="Discount Factor Type"
+    description="Discount Factor Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="DISCOUNT_FACTOR_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+<pickList
+     name="Offer Detail Type"
+     label="Offer Detail Type"
+     description="Offer Detail Type"
+     datadefName="PickList Generic"
+     typeField="Type"
+     typeValue="OFFER_DETAIL_TYPE"
+     bounded="true"
+     distinct="true">
+</pickList>
+<pickList
+     name="Offer Type"
+     label="Offer Type"
+     description="Offer Type"
+     datadefName="PickList Generic"
+     typeField="Type"
+     typeValue="OFFER_TYPE"
+     bounded="true"
+     distinct="true">
+</pickList>
+<pickList
+     name="Master Offer Status"
+     label="Status"
+     description="Status"
+     datadefName="PickList Generic"
+     typeField="Type"
+     typeValue="MASTEROFFER_STATUS"
+     bounded="true"
+     distinct="true">
+</pickList>
+<pickList
+    name="Allowance Level Type"
+    label="Allowance Level Type"
+    description="Allowance Level Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="ALLOWANCE_LEVEL_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+<pickList
+    name="Allowance Level SubType"
+    label="Allowance Level SubType"
+    description="Allowance Level SubType"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="ALLOWANCE_LEVEL_SUBTYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+<pickList
+    name="MasterOffer Error Type"
+    label="MasterOffer Error Type"
+    description="MasterOffer Error Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="MASTEROFFER_ERROR_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+<pickList
+    name="Promotion Activity Type"
+    label="Promotion Activity"
+    description="Promotion Activity Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PROMO_ACTIVITY"
+    bounded="true"
+    distinct="true">
+</pickList>
+<pickList
+    name="Processed Data Type"
+    label="Processed Data"
+    description="Processed Data Type"
+    datadefName="PickList Generic"
+    typeField="Type"
+    typeValue="PROCESSED_DATA_TYPE"
+    bounded="true"
+    distinct="true">
+</pickList>
+</module>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "file:/app.dtd">
+
+
+<module 
+    name="ComponentDefinition" 
+    displayLabel="Component Definitions">
+
+<component 
+    name="dataGrid"
+    label="Data Grid">
+    <property name="name" label="Name" type="string"></property>
+    <property name="label" label="Label" type="string"></property>
+    <property name="table" label="Table" type="string"></property>
+    <property name="format" label="Format" type="string"></property>
+    <property name="noinsert" label="No Insert" type="string"><value>false</value></property>
+    <property name="nodelete" label="No Delete" type="string"><value>false</value></property>
+    <property name="noupdate" label="No Update" type="string"><value>false</value></property>
+    <property name="numrows" label="Num Rows" type="string"></property>
+    <property name="numcols" label="Num Columns" type="string"></property>
+    <property name="datamap" label="Data Map" type="string"></property>
+</component>
+
+</module>
